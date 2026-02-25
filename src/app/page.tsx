@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import { useThemeStore } from "../store/themeStore";
 import { useServiceStore } from "../store/serviceStore";
 
@@ -63,12 +64,14 @@ export default function Home() {
                   <span className="text-xl font-extrabold text-gray-900">
                     Rp {service.basePrice.toLocaleString('id-ID')} <span className="text-sm font-normal text-gray-500">/ hari</span>
                   </span>
-                  <button 
-                    className="px-5 py-2.5 rounded-lg text-white font-semibold shadow-md hover:opacity-90 transition-opacity"
+                  {/* Perubahan utama: Mengubah <button> menjadi <Link> */}
+                  <Link 
+                    href={`/book/${service.id}`}
+                    className="px-5 py-2.5 rounded-lg text-white font-semibold shadow-md hover:opacity-90 transition-opacity inline-block"
                     style={{ backgroundColor: primaryColor }}
                   >
                     Pilih
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
