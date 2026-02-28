@@ -12,7 +12,6 @@ export default function DashboardPage() {
         Ini adalah pusat kendali untuk <strong>{companyName}</strong>. Gunakan menu di sebelah kiri untuk menyetujui pemesanan, menambah layanan, dan mengubah tema website Anda.
       </p>
 
-      {/* Placeholder Metrics - Nanti bisa disambungkan ke API Metrics Dashboard */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-blue-50 border border-blue-100 p-6 rounded-2xl transition hover:shadow-md">
           <h3 className="text-blue-800 font-bold text-lg mb-2">Total Layanan Aktif</h3>

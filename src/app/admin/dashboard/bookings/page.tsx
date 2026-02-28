@@ -35,12 +35,10 @@ export default function BookingsPage() {
             <tr key={b.id} className="border-b border-gray-100 hover:bg-gray-50 text-sm">
               <td className="py-3 px-4">{b.createdAt ? new Date(b.createdAt).toLocaleDateString() : '-'}</td>
               <td className="py-3 px-4">
-                {/* Perbaikan: Menggunakan ?. agar tidak crash jika b.user itu null */}
                 <div className="font-bold">{b.user?.name || b.userName || 'Data Anonim'}</div>
                 <div className="text-gray-500">{b.user?.phone || b.userPhone || '-'}</div>
               </td>
               <td className="py-3 px-4">
-                {/* Perbaikan: Menggunakan ?. agar tidak crash jika b.service null */}
                 <div className="font-medium text-blue-600">{b.service?.name || b.serviceName || 'Layanan Dihapus'}</div>
                 <div>{b.startDate} s/d {b.endDate}</div>
               </td>

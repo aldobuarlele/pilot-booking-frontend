@@ -37,7 +37,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   return (
     <div className="min-h-screen bg-gray-50 flex">
-      {/* --- SIDEBAR KIRI --- */}
       <aside className="w-64 bg-white shadow-2xl flex flex-col hidden md:flex z-20">
         <div 
           className="h-16 flex items-center justify-center font-extrabold text-xl text-white tracking-wide shadow-md" 
@@ -72,7 +71,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         </div>
       </aside>
 
-      {/* --- KONTEN UTAMA KANAN --- */}
       <main className="flex-1 flex flex-col h-screen overflow-hidden relative">
         <header className="h-16 bg-white/80 backdrop-blur-md shadow-sm flex items-center px-8 border-b border-gray-100 z-10">
           <h2 className="text-xl font-bold text-gray-800">

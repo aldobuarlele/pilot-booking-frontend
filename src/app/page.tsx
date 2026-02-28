@@ -23,7 +23,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gray-50 pb-20">
-      {/* Hero Section */}
       <div 
         className="h-[60vh] flex flex-col items-center justify-center text-white text-center px-4"
         style={{ backgroundColor: primaryColor }} 
@@ -36,12 +35,10 @@ export default function Home() {
         </p>
       </div>
 
-      {/* Catalog Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service) => (
             <div key={service.id} className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-              {/* Image Container */}
               <div className="h-56 bg-gray-200 relative">
                 {service.imageUrl ? (
                   <img 
@@ -56,7 +53,6 @@ export default function Home() {
                 )}
               </div>
               
-              {/* Card Body */}
               <div className="p-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">{service.name}</h3>
                 <p className="text-gray-600 mb-4 line-clamp-2">{service.description}</p>
@@ -64,7 +60,6 @@ export default function Home() {
                   <span className="text-xl font-extrabold text-gray-900">
                     Rp {service.basePrice.toLocaleString('id-ID')} <span className="text-sm font-normal text-gray-500">/ hari</span>
                   </span>
-                  {/* Perubahan utama: Mengubah <button> menjadi <Link> */}
                   <Link 
                     href={`/book/${service.id}`}
                     className="px-5 py-2.5 rounded-lg text-white font-semibold shadow-md hover:opacity-90 transition-opacity inline-block"

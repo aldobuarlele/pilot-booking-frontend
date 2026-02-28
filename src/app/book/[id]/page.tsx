@@ -104,13 +104,11 @@ export default function BookServicePage({ params }: { params: Promise<{ id: stri
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden relative z-10">
         
-        {/* --- HEADER --- */}
         <div className="bg-gray-800 px-6 py-8 text-white" style={{ backgroundColor: primaryColor }}>
           <h1 className="text-3xl font-bold mb-2">Formulir Reservasi</h1>
           <p className="text-gray-100 opacity-90">{service.name}</p>
         </div>
 
-        {/* --- KONTEN FORM --- */}
         <div className="p-6 md:p-8">
           <div className="flex flex-col md:flex-row gap-8 mb-8 pb-8 border-b border-gray-200">
             {service.imageUrl && (
@@ -126,7 +124,6 @@ export default function BookServicePage({ params }: { params: Promise<{ id: stri
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            {/* Kalender */}
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-4">1. Pilih Tanggal</h3>
               {isLoadingDates ? (
@@ -147,7 +144,6 @@ export default function BookServicePage({ params }: { params: Promise<{ id: stri
               )}
             </div>
 
-            {/* Data Diri */}
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">2. Data Pemesan</h3>
               
@@ -187,12 +183,10 @@ export default function BookServicePage({ params }: { params: Promise<{ id: stri
         </div>
       </div>
 
-      {/* --- MODAL POPUP --- */}
       {modalState !== 'CLOSED' && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden transform transition-all">
             
-            {/* Modal: Input OTP */}
             {modalState === 'OTP_INPUT' && (
               <div className="p-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2 text-center">Verifikasi OTP</h3>
@@ -216,13 +210,11 @@ export default function BookServicePage({ params }: { params: Promise<{ id: stri
               </div>
             )}
 
-            {/* Modal: Pemilihan Pembayaran */}
             {modalState === 'PAYMENT_SELECTION' && (
               <div className="p-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Pilih Mode Pemesanan</h3>
                 
                 <div className="space-y-4 max-h-[60vh] overflow-y-auto px-1">
-                  {/* Opsi Softbook */}
                   <div className="border border-gray-200 p-4 rounded-xl hover:border-gray-400 transition cursor-pointer">
                     <h4 className="font-bold text-lg mb-1">Tanya Dulu (Softbook)</h4>
                     <p className="text-sm text-gray-600 mb-4">Kami akan memblokir jadwal ini sementara. Harap hubungi WhatsApp kami setelah ini.</p>
@@ -237,12 +229,10 @@ export default function BookServicePage({ params }: { params: Promise<{ id: stri
                     <div className="flex-grow border-t border-gray-200"></div>
                   </div>
 
-                  {/* Opsi Hardbook */}
                   <div className="border border-gray-200 p-4 rounded-xl hover:border-gray-400 transition">
                     <h4 className="font-bold text-lg mb-1">Bayar Langsung (Hardbook)</h4>
                     <p className="text-sm text-gray-600 mb-3">Amankan tanggal Anda sekarang juga dengan mentransfer ke rekening di bawah ini:</p>
                     
-                    {/* Kotak Info Rekening Dinamis */}
                     <div className="bg-blue-50 border border-blue-200 p-3 rounded-lg mb-4 text-sm text-blue-900 whitespace-pre-line font-medium">
                       {paymentInfo}
                     </div>
@@ -265,7 +255,6 @@ export default function BookServicePage({ params }: { params: Promise<{ id: stri
               </div>
             )}
 
-            {/* Modal: Sukses Softbook & Tombol WA */}
             {modalState === 'SUCCESS_SOFT' && (
               <div className="p-8 text-center">
                 <div className="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-bold">✓</div>
