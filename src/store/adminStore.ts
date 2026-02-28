@@ -16,7 +16,7 @@ interface AdminState {
   fetchBookings: () => Promise<void>;
   updateBookingStatus: (id: string, status: string) => Promise<boolean>;
   fetchServices: () => Promise<void>;
-  saveService: (service: any, isEdit: boolean) => Promise<boolean>;
+  saveService: (service: any, isEdit: boolean, imageFile?: File | null) => Promise<boolean>;
   deleteService: (id: string) => Promise<boolean>;
   updateConfig: (key: string, value: string) => Promise<boolean>;
   fetchMetrics: () => Promise<void>;
@@ -50,29 +50,40 @@ export const useAdminStore = create<AdminState>((set, get) => ({
     } catch (error) { console.log('Error fetching services:', error); }
   },
 
-  saveService: async (service, isEdit) => {
+  saveService: async (service, isEdit, imageFile) => {
     try {
       const parsedPrice = parseFloat(service.basePrice);
       const finalPrice = isNaN(parsedPrice) || parsedPrice <= 0 ? 1000 : parsedPrice;
+      
+      const parsedQuota = parseInt(service.quota);
+      const finalQuota = isNaN(parsedQuota) || parsedQuota < 1 ? 1 : parsedQuota;
+
       const finalName = service.name ? String(service.name).trim() : 'Layanan Baru';
       const finalDesc = service.description ? String(service.description).trim() : 'Deskripsi Layanan';
-      const finalImage = (!service.imageUrl || String(service.imageUrl).trim() === '') 
-        ? 'https://via.placeholder.com/400x300?text=No+Image' 
-        : String(service.imageUrl).trim();
-      const finalActive = service.isActive !== undefined ? Boolean(service.isActive) : true;
 
       const payload = {
         name: finalName,
         description: finalDesc,
         basePrice: finalPrice,
-        imageUrl: finalImage,
-        isActive: finalActive
+        isActive: service.isActive !== undefined ? Boolean(service.isActive) : true,
+        quota: finalQuota
+      };
+
+      const formData = new FormData();
+      formData.append('data', new Blob([JSON.stringify(payload)], { type: 'application/json' }));
+      
+      if (imageFile) {
+        formData.append('image', imageFile);
+      }
+
+      const axiosConfig = {
+        headers: { 'Content-Type': 'multipart/form-data' }
       };
 
       if (isEdit && service.id) {
-        await apiClient.put(`/admin/services/${service.id}`, payload);
+        await apiClient.put(`/admin/services/${service.id}`, formData, axiosConfig);
       } else {
-        await apiClient.post('/admin/services', payload);
+        await apiClient.post('/admin/services', formData, axiosConfig);
       }
       
       await get().fetchServices();
@@ -80,7 +91,7 @@ export const useAdminStore = create<AdminState>((set, get) => ({
       return true;
     } catch (error: any) { 
       console.log('Save service detail error:', error.response?.data);
-      const errorMessage = error.response?.data?.message || 'Kesalahan validasi input';
+      const errorMessage = error.response?.data?.message || 'Kesalahan validasi input / Upload Gagal';
       alert(`Gagal menyimpan: ${errorMessage}`);
       return false; 
     }
