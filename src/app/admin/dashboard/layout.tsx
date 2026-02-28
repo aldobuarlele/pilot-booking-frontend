@@ -36,10 +36,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
-      <aside className="w-64 bg-white shadow-2xl flex flex-col hidden md:flex z-20">
+    <div className="min-h-screen bg-gray-100 flex">
+      <aside className="w-64 bg-white shadow-xl border-r border-gray-200 flex flex-col hidden md:flex z-20">
         <div 
-          className="h-16 flex items-center justify-center font-extrabold text-xl text-white tracking-wide shadow-md" 
+          className="h-16 flex items-center justify-center font-extrabold text-xl text-white tracking-wide shadow-sm" 
           style={{ backgroundColor: primaryColor }}
         >
           {companyName}
@@ -52,7 +52,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               <Link 
                 key={item.path} 
                 href={item.path} 
-                className={`block px-4 py-3 rounded-xl font-semibold transition-all duration-200 ${isActive ? 'text-white shadow-lg transform scale-105' : 'text-gray-500 hover:bg-gray-100 hover:text-gray-900'}`}
+                className={`block px-4 py-3 rounded-xl font-bold transition-all duration-200 ${isActive ? 'text-white shadow-md transform scale-105' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'}`}
                 style={isActive ? { backgroundColor: primaryColor } : {}}
               >
                 {item.name}
@@ -61,10 +61,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           })}
         </nav>
         
-        <div className="p-4 border-t border-gray-100">
+        <div className="p-4 border-t border-gray-200">
           <button 
             onClick={handleLogout} 
-            className="w-full py-3 text-red-600 font-bold hover:bg-red-50 rounded-xl transition-colors"
+            className="w-full py-3 text-red-600 font-extrabold hover:bg-red-50 rounded-xl transition-colors"
           >
             Keluar (Logout)
           </button>
@@ -72,13 +72,13 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       </aside>
 
       <main className="flex-1 flex flex-col h-screen overflow-hidden relative">
-        <header className="h-16 bg-white/80 backdrop-blur-md shadow-sm flex items-center px-8 border-b border-gray-100 z-10">
-          <h2 className="text-xl font-bold text-gray-800">
+        <header className="h-16 bg-white shadow-sm flex items-center px-8 border-b border-gray-200 z-10">
+          <h2 className="text-xl font-extrabold text-gray-900 tracking-tight">
             {navItems.find(i => i.path === pathname)?.name || 'Admin Panel'}
           </h2>
         </header>
         
-        <div className="flex-1 overflow-y-auto p-8">
+        <div className="flex-1 overflow-y-auto p-8 bg-gray-50">
           {children}
         </div>
       </main>
