@@ -1,6 +1,3 @@
-💻 2. README.md untuk Repositori FRONTEND (`pilot-booking-frontend`)
-
-```markdown
 # 🌐 Pilot Booking System - Enterprise Web Portal
 
 [![Next.js](https://img.shields.io/badge/Next.js-14%2B-000000?style=flat-square&logo=next.js&logoColor=white)](https://nextjs.org/)
