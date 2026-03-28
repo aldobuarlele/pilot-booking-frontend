@@ -7,12 +7,6 @@
 
 The modern, highly responsive, and elegant user interface for the **Pilot Booking System**. Built with Next.js and Tailwind CSS, providing a seamless booking experience for customers and a powerful command center for administrators.
 
-## ⚙️ Prerequisites
-
-* [Node.js](https://nodejs.org/) (v18.x or newer)
-* [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
-* The **Pilot Booking System Core API (Backend)** must be running locally or deployed.
-
 ## ✨ Key Features
 
 * **Elegant Public Catalog:** Glassmorphism UI, dynamic service cards, and real-time quota indicators.
@@ -21,6 +15,12 @@ The modern, highly responsive, and elegant user interface for the **Pilot Bookin
 * **Layered Security (Auto-Logout):** Proactive and reactive JWT expiration handling (15-minute idle kick) integrated with Axios Interceptors.
 * **Centralized State Management:** Optimized and fast global state handling using Zustand.
 * **Dynamic Theme System:** Admin-configurable primary colors, company names, and system variables that reflect instantly on the public site.
+
+## ⚙️ Prerequisites
+
+* [Node.js](https://nodejs.org/) (v18.x or newer)
+* [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+* The **Pilot Booking System Core API (Backend)** must be running locally or deployed.
 
 ## 🛠️ Technology Stack
 
