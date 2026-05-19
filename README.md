@@ -16,6 +16,12 @@ The modern, highly responsive, and elegant user interface for the **Pilot Bookin
 * **Centralized State Management:** Optimized and fast global state handling using Zustand.
 * **Dynamic Theme System:** Admin-configurable primary colors, company names, and system variables that reflect instantly on the public site.
 
+## ⚙️ Prerequisites
+
+* [Node.js](https://nodejs.org/) (v18.x or newer)
+* [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+* The **Pilot Booking System Core API (Backend)** must be running locally or deployed.
+
 ## 🛠️ Technology Stack
 
 * **Framework:** Next.js (App Router)
@@ -23,13 +29,6 @@ The modern, highly responsive, and elegant user interface for the **Pilot Bookin
 * **Styling:** Tailwind CSS
 * **State Management:** Zustand
 * **HTTP Client:** Axios
-
-
-## ⚙️ Prerequisites
-
-* [Node.js](https://nodejs.org/) (v18.x or newer)
-* [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
-* The **Pilot Booking System Core API (Backend)** must be running locally or deployed.
 
 
 ## 🚀 Getting Started
